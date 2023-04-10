@@ -1,14 +1,18 @@
 package h_m_1;
 
 
-public abstract class product {
+public class Product {
     private String name;
     private Double cost;
 
-    public product(String name, Double cost) {
+    public Product(String name, Double cost) {
         this.name = name;
         this.cost = cost;
     }
+
+    public Product() {
+    }
+
 
     public String getName() {
         return name;

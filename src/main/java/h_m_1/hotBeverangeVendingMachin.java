@@ -1,19 +1,27 @@
 package h_m_1;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Collections;
 
-public class hotBeverangeVendingMachin extends BeverangeVendingMachin{
+public class HotBeverangeVendingMachin extends BeverangeVendingMachin implements  Iterable{
 
-    public hotBeverangeVendingMachin(String name, Double cost, Integer volume, ArrayList<product> find_out) {
+
+    public HotBeverangeVendingMachin(String name, Double cost, Integer volume, ArrayList<Product> find_out) {
         super(name, cost, volume, find_out);
     }
 
-    public ArrayList getProduct(String searchName, Integer volume, Integer temperature) {
-        ArrayList<product> tempList = this.getProduct(searchName, volume);
+    public HotBeverangeVendingMachin(String name, Double cost, Integer volume) {
+        super(name, cost, volume);
+    }
 
-        ArrayList<product> result = new ArrayList<>();
-        for (product tempItem : tempList) {
-            hotBeverange item = (hotBeverange) tempItem;
+
+    public ArrayList getProduct(String searchName, Integer volume, Integer temperature) {
+        ArrayList<Product> tempList = this.getProduct(searchName, volume);
+
+        ArrayList<Product> result = new ArrayList<>();
+        for (Product tempItem : tempList) {
+            HotBeverange item = (HotBeverange) tempItem;
             if (item.getTemperature().equals(temperature)) {
                 result.add(tempItem);
             }
@@ -22,4 +30,11 @@ public class hotBeverangeVendingMachin extends BeverangeVendingMachin{
     }
 
 
+    @Override
+    public Iterator iterator() {
+        return find_out.iterator();
+    }
+    public void sort(HotBeverangeComporator temp){
+        find_out.sort(temp);
+    }
 }

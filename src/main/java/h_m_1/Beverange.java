@@ -1,6 +1,6 @@
 package h_m_1;
 
-public class Beverange extends product{
+public class Beverange extends Product{
     private Integer volume;
 
     public Beverange(String name, Double cost, Integer volume) {
